@@ -3,26 +3,25 @@ package models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "passenger")
+@Table(name = "passanger")
 public class Passenger {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "passanger_id")
     private long id;
 
     private String firstname;
-    private String lastname;
 
+    @OneToOne (cascade=CascadeType.ALL)
     @JoinColumn(name = "seat_id")
     private Seat seat;
 
     public Passenger() {
     }
 
-    public Passenger(String firstname, String lastname) {
+    public Passenger(String firstname) {
         this.firstname = firstname;
-        this.lastname = lastname;
     }
 
     public Seat getSeat() {
@@ -41,15 +40,9 @@ public class Passenger {
         return firstname;
     }
 
-    public String getLastname() {
-        return lastname;
-    }
 
     public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
 }
