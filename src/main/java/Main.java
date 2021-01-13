@@ -17,12 +17,15 @@ public class Main {
 
         Seat seat1 = new Seat();
         Seat seat2 = new Seat();
+        Seat seat3 = new Seat();
 
         seat1.setPassenger(passenger1);
         seat2.setPassenger(passenger2);
+        seat3.setPassenger(passenger2);
 
-        passenger1.setSeat(seat1);
-        passenger2.setSeat(seat2);
+        passenger1.addSeat(seat1);
+        passenger2.addSeat(seat2);
+        passenger2.addSeat(seat3);
 
         passangerService.updateUser(passenger1);
         passangerService.updateUser(passenger2);

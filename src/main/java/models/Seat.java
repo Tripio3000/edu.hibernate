@@ -11,7 +11,7 @@ public class Seat {
     @Column(name = "id")
     private long id;
 
-    @OneToOne (cascade=CascadeType.ALL)
+    @ManyToOne (cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "passanger_id")
     private Passenger passenger;
 
